@@ -16,16 +16,3 @@ WORKDIR /srv/ansible
 
 #run ansible to configure the docker image
 RUN ansible-playbook base.yml -c local
-
-#Change user, launch bash
-USER play
-WORKDIR /home/play
-CMD ["/bin/bash"]
-
-#expose Code volume and play ports 9000 default 9999 debug 8888 activator ui
-VOLUME "/home/play/Code"
-EXPOSE 9000
-EXPOSE 9999
-EXPOSE 8888
-WORKDIR /home/play/Code
-
