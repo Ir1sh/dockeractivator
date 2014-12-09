@@ -2,7 +2,7 @@
   - hosts: local
     sudo: yes
     vars:
-        activator_version: 1.2.12
+        activator_version: 1.2.10
     tasks:
         - name: ensure java is at the latest version
           apt: pkg=openjdk-7-jdk state=latest
@@ -21,11 +21,11 @@
         - name: create /opt/activator dir
           file: dest=/opt/activator mode=755 owner=play group=play state=directory
         - name: get Activator
-          get_url: url="http://downloads.typesafe.com/typesafe-activator/1.2.12/typesafe-activator-1.2.12-minimal.zip" dest=/tmp/activator-1.2.12.zip
+          get_url: url="http://downloads.typesafe.com/typesafe-activator/1.2.10/typesafe-activator-1.2.10.zip" dest=/tmp/activator-1.2.10.zip
         - name: unzip acivator
-          unarchive: src=/tmp/activator-1.2.12.zip dest=/tmp/
+          unarchive: src=/tmp/activator-1.2.10.zip dest=/tmp/
         - name: move activator to opt
-          local_action: synchronize src=/tmp/activator-1.2.12/ dest=/opt/activator/ recursive=yes delete=yes
+          local_action: synchronize src=/tmp/activator-1.2.10/ dest=/opt/activator/ recursive=yes delete=yes
         - name: give play user permissions for opt/activator
           file: path=/opt/activator/ state=directory recurse=true mode=755
         - name: export path variable
