@@ -21,9 +21,9 @@
         - name: create /opt/activator dir
           file: dest=/opt/activator mode=755 owner=play group=play state=directory
         - name: get Activator
-          get_url: url="http://downloads.typesafe.com/typesafe-activator/1.2.12/typesafe-activator-1.2.12-minimal.zip" dest=/tmp/activator-1.2.12.zip
+        get_url: url="http://downloads.typesafe.com/typesafe-activator/1.2.12/typesafe-activator-1.2.12-minimal.zip" dest=/tmp/activator-1.2.12.zip
         - name: unzip acivator
-          unarchive: src=/tmp/activator-1.2.12-minimal.zip dest=/tmp/
+          unarchive: src=/tmp/activator-1.2.12.zip dest=/tmp/
         - name: move activator to opt
           local_action: synchronize src=/tmp/activator-1.2.12/ dest=/opt/activator/ recursive=yes delete=yes
         - name: give play user permissions for opt/activator
