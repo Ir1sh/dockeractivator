@@ -1,8 +1,10 @@
 ---
   - hosts: local
+    roles:
+        - supervisord
     sudo: yes
     vars:
-        activator_version: 1.2.10
+        activator_version: 1.2.10        
     tasks:
         - name: ensure java is at the latest version
           apt: pkg=openjdk-7-jdk state=latest
@@ -32,4 +34,3 @@
           raw: "echo 'export PATH=$PATH:/opt/activator' >> /home/play/.bashrc"
         - name: export java options variable
           raw: "echo 'export _JAVA_OPTIONS=\"-Duser.home=/home/play/Code\"' >> /home/play/.bashrc "
-
