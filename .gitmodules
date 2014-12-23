@@ -1,0 +1,3 @@
+[submodule "ansible-supervisord"]
+	path = ansible-supervisord
+	url = https://github.com/zenoamaro/ansible-supervisord.git
