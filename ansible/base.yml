@@ -5,6 +5,7 @@
     sudo: yes
     vars:
         activator_version: 1.2.10        
+        supervisord_daemonize: no
     tasks:
         - name: ensure java is at the latest version
           apt: pkg=openjdk-7-jdk state=latest
